@@ -1,10 +1,6 @@
-from collections import deque
+def operation(a, b, c, d):
+    print(pow(a, b) + pow(c, d))
 
 if __name__ == '__main__':
-    n = int(input())
-    op_list = [input().lower() for i in range(n)]
-    deq = deque()
-    for op in op_list:
-        getattr(deq, op.split()[0])(*map(int, op.split()[1:]))
-    
-    print(' '.join(list(str(i) for i in deq)))
+    a, b, c, d = int(input()), int(input()), int(input()), int(input())
+    operation(a, b, c, d)
