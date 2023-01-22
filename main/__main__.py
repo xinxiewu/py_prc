@@ -1,7 +1,10 @@
-def merge_the_tools(string, k):
-    for i in range (0, len(string), k):
-        print(''.join(sorted(set(string[i : (i+k)]), key = string[i : (i+k)].index)))
+from collections import deque
 
 if __name__ == '__main__':
-    string, k = input(), int(input())
-    merge_the_tools(string, k)
+    n = int(input())
+    op_list = [input().lower() for i in range(n)]
+    deq = deque()
+    for op in op_list:
+        getattr(deq, op.split()[0])(*map(int, op.split()[1:]))
+    
+    print(' '.join(list(str(i) for i in deq)))
